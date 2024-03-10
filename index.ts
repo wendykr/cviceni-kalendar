@@ -75,16 +75,6 @@ const activities: Activity[] = [
   },
 ];
 
-// console.log(activities);
-
-// activities.forEach((activity) => {
-//   if (activity.type === 'task') {
-//     console.log(activity.name);
-//   } else {
-//     console.log(activity.duration);
-//   }
-// });
-
 const renderCalendar = (activities: Activity[]): void => {
   activities.forEach((activity) => {
     const dayColumn: HTMLElement | null = document.getElementById(`day${activity.time.day}`);
@@ -107,10 +97,7 @@ const renderCalendar = (activities: Activity[]): void => {
 
       newItem.textContent = activity.name;
 
-      console.log(newItem);
-      console.log(newItem.outerHTML);
-
-      dayColumn.innerHTML += newItem.outerHTML;
+      dayColumn.appendChild(newItem);
     }
   });
 }
