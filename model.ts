@@ -1,7 +1,7 @@
 interface Time {
   day: 1 | 2 | 3 | 4 | 5 | 6 | 7;
-  hour: number;
-  minute: number;
+  hour: string;
+  minute: string;
 }
 
 interface BaseActivity {
