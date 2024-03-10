@@ -1,6 +1,6 @@
 interface Time {
   day: 1 | 2 | 3 | 4 | 5 | 6 | 7;
-  hour: string;
+  hour: number;
   minute: string;
 }
 
