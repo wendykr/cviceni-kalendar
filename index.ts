@@ -26,7 +26,7 @@ const activities: Activity[] = [
   {
     name: 'Learn English',
     time: {
-      day: 2,
+      day: 4,
       hour: 18,
       minute: 15,
     },
@@ -60,18 +60,37 @@ const activities: Activity[] = [
       hour: 16,
       minute: 50,
     },
-    done: false,
+    done: true,
     type: 'task',
   },
   {
-    name: 'Meetup React Girls',
+    name: 'ReactGirls Mentoring',
     time: {
-      day: 1,
-      hour: 8,
+      day: 6,
+      hour: 18,
       minute: 25,
     },
-    done: true,
-    type: 'task',
+    duration: 120,
+    type: 'meeting',
+  },
+  {
+    name: 'Easter Monday',
+    time: {
+      day: 1,
+      hour: 0,
+      minute: 0,
+    },
+    type: 'holiday',
+  },
+  {
+    name: 'Typescript - Course',
+    time: {
+      day: 2,
+      hour: 18,
+      minute: 0,
+    },
+    duration: 120,
+    type: 'event',
   },
 ];
 
@@ -87,12 +106,18 @@ const renderCalendar = (activities: Activity[]): void => {
       if (activity.type === 'event') {
         newItem.classList.add('item-event');
         newItem.style.height = activity.duration + 'px';
-      } else {
+      } else if (activity.type === 'task') {
         newItem.classList.add('item-task');
         newItem.style.height = 'auto';
         if (activity.done) {
           newItem.classList.add('task-done');
         }
+      } else if (activity.type === 'holiday') {
+        newItem.classList.add('item-holiday');
+        newItem.style.height = 'auto';
+      } else {
+        newItem.classList.add('item-meeting');
+        newItem.style.height = activity.duration + 'px';
       }
 
       newItem.textContent = activity.name;

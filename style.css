@@ -108,6 +108,14 @@ header {
   background-color: white;
 }
 
+.item-holiday {
+  background-color: #feea66;
+}
+
+.item-meeting {
+  background-color: #db5bf7;
+}
+
 .task-done {
   text-decoration: line-through;
 }
