@@ -140,3 +140,12 @@ const renderCalendar = (activities: Activity[]): void => {
 }
 
 renderCalendar(activities);
+
+const calendarItemElm: NodeList = document.querySelectorAll('.calendar-item');
+
+calendarItemElm.forEach((item: HTMLElement) => {
+  item.addEventListener('click', () => {
+    item.classList.add('task-done');
+    item.replaceWith(item);
+  });
+});
