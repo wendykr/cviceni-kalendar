@@ -17,7 +17,7 @@ const activities: Activity[] = [
     name: 'Job Fair Czechitas',
     time: {
       day: 4,
-      hour: 13,
+      hour: '13',
       minute: '30',
     },
     duration: 90,
@@ -27,7 +27,7 @@ const activities: Activity[] = [
     name: 'Learn English',
     time: {
       day: 4,
-      hour: 18,
+      hour: '18',
       minute: '15',
     },
     done: false,
@@ -37,7 +37,7 @@ const activities: Activity[] = [
     name: 'React 1 - Course',
     time: {
       day: 3,
-      hour: 18,
+      hour: '18',
       minute: '00',
     },
     duration: 180,
@@ -47,7 +47,7 @@ const activities: Activity[] = [
     name: 'Coffee break',
     time: {
       day: 1,
-      hour: 14,
+      hour: '14',
       minute: '55',
     },
     done: false,
@@ -57,7 +57,7 @@ const activities: Activity[] = [
     name: 'Call Session',
     time: {
       day: 5,
-      hour: 16,
+      hour: '16',
       minute: '50',
     },
     done: true,
@@ -67,7 +67,7 @@ const activities: Activity[] = [
     name: 'ReactGirls Mentoring',
     time: {
       day: 6,
-      hour: 18,
+      hour: '18',
       minute: '25',
     },
     duration: 120,
@@ -77,7 +77,7 @@ const activities: Activity[] = [
     name: 'Easter Monday',
     time: {
       day: 1,
-      hour: 0,
+      hour: '0',
       minute: '00',
     },
     type: 'holiday',
@@ -86,7 +86,7 @@ const activities: Activity[] = [
     name: 'Typescript - Course',
     time: {
       day: 2,
-      hour: 18,
+      hour: '18',
       minute: '00',
     },
     duration: 120,
@@ -96,7 +96,7 @@ const activities: Activity[] = [
     name: 'Wash the dishes',
     time: {
       day: 7,
-      hour: 13,
+      hour: '13',
       minute: '04',
     },
     done: false,
@@ -145,7 +145,22 @@ const calendarItemElm: NodeList = document.querySelectorAll('.calendar-item');
 
 calendarItemElm.forEach((item: HTMLElement) => {
   item.addEventListener('click', () => {
-    item.classList.add('task-done');
-    item.replaceWith(item);
+    if (item.classList.contains('item-task') && item.classList.contains('task-done')) {
+      item.classList.remove('task-done');
+    } else if (item.classList.contains('item-task') && !item.classList.contains('task-done')) {
+      item.classList.add('task-done');
+    }
+  });
+});
+
+calendarItemElm.forEach((item: HTMLElement) => {
+  item.addEventListener('mouseover', () => {
+    item.classList.add('pointer');
+  });
+});
+
+calendarItemElm.forEach((item: HTMLElement) => {
+  item.addEventListener('onmouseout', () => {
+    item.classList.add('pointer');
   });
 });
